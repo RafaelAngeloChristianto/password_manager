@@ -40,8 +40,6 @@ This project demonstrates **practical cryptography**, **secure key derivation**,
 ---
 
 ## 📂 Project Structure
-
-.
 ├── main.py # Password Manager application
 ├── vault.sec # Encrypted password vault (auto-created)
 ├── salt.bin # Cryptographic salt (auto-created)
@@ -80,6 +78,7 @@ Subsequent Runs
     Enter the same master password to unlock your vault
 
     ❌ Incorrect password → vault remains inaccessible
+```
 
 🔑 Password Generator
 
