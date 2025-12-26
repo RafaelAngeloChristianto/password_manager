@@ -1,61 +1,67 @@
-🔐 Secure Password Manager (Python + Tkinter)
+# 🔐 Secure Password Manager  
+**Python • Tkinter • Cryptography**
 
-A local, encrypted password manager built with Python and Tkinter.
-All credentials are securely encrypted using a master password and never stored in plaintext.
+A **local, offline, encrypted password manager** built with **Python and Tkinter**.  
+All credentials are securely encrypted using a **master password** and are **never stored in plaintext**.
 
-This project demonstrates practical knowledge of cryptography, secure key derivation, and GUI development.
+This project demonstrates **practical cryptography**, **secure key derivation**, and **GUI application development**.
 
-✨ Features
+---
 
-🔑 Master Password Authentication
+## ✨ Features
 
-🔒 Strong Encryption
+- 🔑 **Master Password Authentication**
+- 🔒 **Strong Encryption**
+  - PBKDF2-HMAC (SHA-256)
+  - 300,000 iterations
+  - Fernet (AES-128 + HMAC)
+- 🧂 Secure random salt generation
+- 🖥️ User-friendly **Tkinter GUI**
+- 🔄 Add, load, update, and delete credentials
+- 👁️ Toggle password visibility
+- 🎲 Cryptographically secure password generator
+- 💾 Fully encrypted local vault (`vault.sec`)
+- 🛡️ Offline-only by design
 
-PBKDF2-HMAC (SHA-256)
+---
 
-300,000 iterations
+## 🛡️ Security Architecture
 
-Fernet (AES-128 + HMAC)
+| Component        | Description                                  |
+|------------------|----------------------------------------------|
+| Key Derivation   | PBKDF2-HMAC (SHA-256)                         |
+| Iterations       | 300,000                                      |
+| Salt             | Random 16-byte salt (`salt.bin`)              |
+| Encryption       | Fernet (AES-128 + HMAC)                       |
+| Storage Format   | Fully encrypted JSON                          |
 
-🧂 Secure random salt generation
+> **Even if `vault.sec` is stolen, it cannot be decrypted without the master password.**
 
-🖥️ User-friendly Tkinter GUI
+---
 
-🔄 Load, save, and delete credentials
+## 📂 Project Structure
 
-👁️ Toggle password visibility
-
-🎲 Cryptographically secure password generator
-
-💾 Encrypted vault stored locally (vault.sec)
-
-🛡️ Security Design
-Component	Description
-Key Derivation	PBKDF2-HMAC with SHA-256
-Iterations	300,000
-Salt	Random 16-byte salt (salt.bin)
-Encryption	Fernet (AES + HMAC)
-Storage	Fully encrypted JSON vault
-
-Even if vault.sec is stolen, it cannot be decrypted without the master password.
-
-📂 Project Structure
 .
-├── main.py          # Password Manager application
-├── vault.sec        # Encrypted password vault (auto-created)
-├── salt.bin         # Cryptographic salt (auto-created)
+├── main.py # Password Manager application
+├── vault.sec # Encrypted password vault (auto-created)
+├── salt.bin # Cryptographic salt (auto-created)
 └── README.md
 
-🚀 Installation
-1. Clone the repository
+
+---
+
+## 🚀 Installation
+
+### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/yourusername/secure-password-manager.git
 cd secure-password-manager
 
-2. Install dependencies
+2️⃣ Install dependencies
+
 pip install cryptography
 
-
-Tkinter is included with most Python installations.
+    Note: Tkinter is included with most Python installations.
 
 ▶️ Usage
 
@@ -65,75 +71,70 @@ python main.py
 
 First Run
 
-You will be prompted to create a master password
+    You will be prompted to create a master password
 
-A new encrypted vault will be created automatically
+    A new encrypted vault is created automatically
 
-Next Runs
+Subsequent Runs
 
-Enter the same master password to unlock your vault
+    Enter the same master password to unlock your vault
 
-Wrong password → vault remains inaccessible
+    ❌ Incorrect password → vault remains inaccessible
 
 🔑 Password Generator
 
-Choose length between 8–64 characters
+    Adjustable length: 8–64 characters
 
-Uses:
+    Uses Python’s secrets module (cryptographically secure)
 
-Uppercase & lowercase letters
+    Character set includes:
 
-Numbers
+        Uppercase & lowercase letters
 
-Symbols
+        Numbers
 
-Generated with Python’s secrets module (cryptographically secure)
+        Symbols
 
-⚠️ Important Notes
+⚠️ Important Security Notes
 
-❗ If you forget your master password, your data cannot be recovered
+    ❗ If you forget your master password, your data cannot be recovered
 
-❗ Deleting salt.bin will permanently break vault decryption
+    ❗ Deleting salt.bin permanently breaks vault decryption
 
-This app is offline-only by design for maximum security
+    🔒 This application is offline-only by design for maximum security
 
 🎯 Why This Project Matters (Portfolio)
 
 This project demonstrates:
 
-Practical cryptography (not just theory)
+    ✔️ Real-world cryptography (not just theory)
 
-Secure key handling & password-based encryption
+    ✔️ Secure password-based key derivation
 
-Defensive security mindset
+    ✔️ Defensive security mindset
 
-GUI application development
+    ✔️ GUI development with Tkinter
 
-Secure local data storage
+    ✔️ Secure local data storage
 
-Perfect for:
+Ideal for:
 
-Cybersecurity portfolios
+    Cybersecurity portfolios
 
-Blue team / defensive security roles
+    Blue Team / Defensive Security roles
 
-Python security projects
+    Python security projects
 
-University or CTF-related showcases
+    University assignments or CTF showcases
 
 🧠 Future Improvements
 
-Clipboard auto-clear
+    Clipboard auto-clear timer
 
-Search & filter entries
+    Search & filter credentials
 
-Auto-lock timer
+    Auto-lock on inactivity
 
-Vault export/import
+    Vault export/import
 
-Two-factor authentication (2FA)
-
-📜 License
-
-This project is for educational purposes.
-Use responsibly.
+    Two-factor authentication (2FA)
